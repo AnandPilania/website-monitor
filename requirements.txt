@@ -1,0 +1,22 @@
+# ---------------------------------------------------------------------------
+# Website Monitor — Python dependencies
+#
+# Core: stdlib only (no mandatory third-party packages)
+# Optional enhancements listed below; install what you need.
+# ---------------------------------------------------------------------------
+
+# Desktop notifications (Windows 10+)
+# win10toast>=0.9; sys_platform == "win32"
+
+# Cross-platform desktop notifications (alternative, supports all OSes)
+# plyer>=2.1
+
+# Rich terminal output (coloured tables, progress bars)
+# rich>=13.0
+
+# ---------------------------------------------------------------------------
+# Development / testing
+# ---------------------------------------------------------------------------
+pytest>=8.0
+pytest-cov>=5.0
+responses>=0.25          # mock HTTP in tests

@@ -1,0 +1,39 @@
+{
+    "websites": [
+        "https://www.google.com",
+        "https://www.github.com"
+    ],
+    "timeout": 10,
+    "max_response_time": 5000,
+    "check_interval": 300,
+    "max_retries": 3,
+    "retry_delay": 2,
+    "retry_backoff": 2.0,
+    "concurrent_checks": 5,
+    "keyword_checks": {
+        "https://www.google.com": "Search"
+    },
+    "alerts": {
+        "email": {
+            "enabled": false,
+            "to": "admin@example.com",
+            "from": "monitor@example.com",
+            "smtp_host": "smtp.gmail.com",
+            "smtp_port": 587,
+            "smtp_user": "",
+            "smtp_password": ""
+        },
+        "webhook": {
+            "enabled": false,
+            "url": "",
+            "timeout": 5
+        },
+        "slack": {
+            "enabled": false,
+            "webhook_url": ""
+        },
+        "desktop": {
+            "enabled": true
+        }
+    }
+}

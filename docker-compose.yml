@@ -1,0 +1,51 @@
+version: "3.9"
+
+# =============================================================================
+# Website Monitor — Docker Compose
+#
+# Usage:
+#   docker compose up -d           # start in background
+#   docker compose logs -f         # tail logs
+#   docker compose exec monitor python monitor.py report
+#   docker compose down            # stop
+# =============================================================================
+
+services:
+  monitor:
+    build: .
+    image: website-monitor:latest
+    container_name: website-monitor
+
+    restart: unless-stopped
+
+    # ── Persistent storage ──────────────────────────────────────────────────
+    volumes:
+      - ./monitor_config.json:/app/monitor_config.json:ro   # config (read-only)
+      - monitor-logs:/app/logs                               # log files
+      - monitor-reports:/app/reports                        # generated reports
+
+    # ── Secrets via environment (never in config files) ─────────────────────
+    env_file:
+      - path: .env
+        required: false       # OK to run without .env (alerts just disabled)
+
+    # ── Resource limits ─────────────────────────────────────────────────────
+    deploy:
+      resources:
+        limits:
+          cpus: "0.25"
+          memory: 128M
+        reservations:
+          cpus: "0.05"
+          memory: 32M
+
+    # ── Logging ─────────────────────────────────────────────────────────────
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "5"
+
+volumes:
+  monitor-logs:
+  monitor-reports:

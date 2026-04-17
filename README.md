@@ -103,15 +103,15 @@ python monitor.py report
 
 #### Method 1: Easy Setup (Batch File)
 
-1. **Download** `run-monitor.bat` and `monitor.py`
-2. **Double-click** `run-monitor.bat`
+1. **Download** `scripts/run-monitor.bat` and `monitor.py`
+2. **Double-click** `scripts/run-monitor.bat`
 3. Done! ✨
 
 #### Method 2: PowerShell Installation
 
 ```powershell
 # Run as Administrator
-.\install-windows.ps1
+.\scripts\install-windows.ps1
 ```
 
 This will:
@@ -166,8 +166,8 @@ pip install win10toast
 
 ```bash
 # Run installer
-chmod +x install-macos.sh
-./install-macos.sh
+chmod +x scripts/install-macos.sh
+./scripts/install-macos.sh
 ```
 
 #### Manual Setup
@@ -234,8 +234,8 @@ tail -f ~/website-monitor/logs/monitor_*.log
 
 ```bash
 # Run installer
-chmod +x install-linux.sh
-./install-linux.sh
+chmod +x scripts/install-linux.sh
+./scripts/install-linux.sh
 ```
 
 #### Manual Setup
@@ -375,7 +375,7 @@ python3 monitor.py check
 **Universal (with helper script):**
 
 ```bash
-./run.sh check
+./scripts/run.sh check
 ```
 
 ## ⚙️ Configuration
@@ -708,25 +708,6 @@ python monitor.py report --hours 720 > reports/monthly-$(date +%Y-%m).txt
 | 5xx  | DOWN     | 🚨 Server error       |
 | 000  | DOWN     | 🚨 Connection failed  |
 
-### Project Structure
-
-```
-website-monitor/
-├── monitor.py              # Main script
-├── monitor_config.json     # Configuration
-├── logs/
-│   ├── monitor_YYYYMMDD.log
-│   └── status.jsonl
-├── reports/
-│   └── weekly-reports.txt
-└── platform-scripts/
-    ├── run-monitor.bat     # Windows
-    ├── install-windows.ps1
-    ├── install-macos.sh
-    ├── install-linux.sh
-    └── run.sh
-```
-
 ### Why Python for Cross-Platform?
 
 1. **Write Once, Run Anywhere** - Same code, all OSes
@@ -778,7 +759,7 @@ python monitor.py check --config dev-config.json
 
 ## 📈 Roadmap
 
-- [ ] SSL certificate expiry monitoring
+- [*] SSL certificate expiry monitoring
 - [ ] Multi-region checking
 - [ ] Web dashboard
 - [ ] Prometheus metrics export

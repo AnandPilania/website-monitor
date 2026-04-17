@@ -1,0 +1,7 @@
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts   = "-v --tb=short --strict-markers"
+
+[tool.coverage.run]
+source = ["."]
+omit   = ["tests/*", ".venv/*", "venv/*"]

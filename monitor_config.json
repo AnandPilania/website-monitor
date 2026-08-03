@@ -13,6 +13,23 @@
     "keyword_checks": {
         "https://www.google.com": "Search"
     },
+    "request_overrides": {},
+    "security_headers_check": false,
+    "domain_expiry_check": false,
+    "domain_expiry_warn_days": 30,
+    "ssl_expiry_warn_days": 14,
+    "dns_checks": {},
+    "tcp_checks": {},
+    "push_monitors": {},
+    "maintenance_windows": [],
+    "prometheus": {
+        "enabled": false,
+        "port": 9877
+    },
+    "dashboard": {
+        "enabled": false,
+        "port": 8877
+    },
     "alerts": {
         "email": {
             "enabled": false,
@@ -31,6 +48,16 @@
         "slack": {
             "enabled": false,
             "webhook_url": ""
+        },
+        "ntfy": {
+            "enabled": false,
+            "server": "https://ntfy.sh",
+            "topic": ""
+        },
+        "pushover": {
+            "enabled": false,
+            "user_key": "",
+            "api_token": ""
         },
         "desktop": {
             "enabled": true
